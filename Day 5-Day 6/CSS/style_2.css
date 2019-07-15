@@ -1,0 +1,25 @@
+h1 {
+    margin: 0px;
+    padding: 30px;
+}
+.nav {
+    float: left;
+    background-color: #36f;
+    margin-right: 10px;
+    height: 660px;
+}
+article {
+    float: left;
+}
+.strong {
+    font-weight: bold;
+}
+.distance {
+    padding-left: 30px;
+}
+span{
+    padding-right: 10px;
+}
+.line {
+    display: block;
+}
