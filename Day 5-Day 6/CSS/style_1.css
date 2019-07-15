@@ -1,0 +1,12 @@
+.strong {
+    font-weight: bold;
+}
+.distance {
+    padding-left: 30px;
+}
+span{
+    padding-right: 10px;
+}
+.line {
+    display: block;
+}
