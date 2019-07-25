@@ -7,3 +7,6 @@
 ## Day5-Day6
 * [笔记](https://github.com/shicong0013/baidu_college/blob/master/Day%205-Day%206/README.md)
 * [代码](https://github.com/shicong0013/baidu_college/blob/master/Day%205-Day%206/index.html)
+## Day5-Day6
+* [笔记](https://github.com/shicong0013/baidu_college/tree/master/Day7-Day8)
+* [代码](https://github.com/shicong0013/baidu_college/blob/master/Day7-Day8/index.html)
