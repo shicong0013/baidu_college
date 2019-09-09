@@ -1,0 +1,390 @@
+* {
+    font-size: 10px;
+    font-family: sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+/* 头部 */
+header {
+    text-align: center;
+    height: 400px;
+    width: 100%;
+    padding: 100px 0;
+    background-image: url(image/Background_1.png);
+    background-size: 100% 100%;
+}
+h1 {
+    font-size: 4rem;
+    color: white;
+}
+.title {
+    color: white;
+    font-size: 1.5rem;
+}
+.legend {
+    color: #bdbdbd5b;
+    padding: 10px 0;
+}
+h1+.legend {
+    font-size: 2rem;
+    width: 700px;
+    margin: 60px auto;
+    padding: 20px 0;
+}
+.header_form {
+    border: 1px solid #bdbdbd5b;
+    width: 740px;
+    padding: 40px 60px;
+    margin: 0 auto;
+}
+.header_form form {
+    display: flex;
+    justify-content: center;
+}
+.header_form .legend {
+    margin-bottom: 30px;
+}
+input {
+    width: 250px;
+    height: 35px;
+    margin-right: 20px;
+    padding-left: 15px;
+    border: 1px solid #bdbdbd5b;
+    border-radius: 2px;
+    background-color: transparent;
+}
+#mail {
+    color: white;
+}
+#password {
+    color: #bdbdbd5b;
+}
+button {
+    width: 80px;
+    height: 37px;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 2px;
+}
+/* 新特性 */
+.news {
+    background: white;
+    width: 100%;
+    height: 550px;
+}
+.news div {
+    width: 800px;
+    margin: 0 auto;
+    padding: 70px 0;
+}
+.news_title1 {
+    text-align: center;
+}
+.news_title2 {
+    font-size: 3rem;
+    width: 500px;
+    text-align: center;
+    margin: 20px auto;
+}
+.news_box {
+    display: flex;
+    flex-wrap: wrap;
+}
+.news_box section {
+    flex: 398px;
+    height: 150px;
+    position: relative;    
+}
+.news_box2,.news_box4 {
+    position: relative;
+    left: 150px;
+}
+.news_box img {
+    position: absolute;
+    right: 420px;
+}
+.news_title {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+.news_legend {
+    font-size: 1.3rem;
+    width: 270px;
+    color: #bdbdbd;
+    position: relative;
+    top: 10px;
+}
+/* 政策部分 */
+.policies {
+    width: 100%;
+    height: 600px;
+    background-image: url(image/Background_2.png);
+    background-size: 100% 100%;
+    position: relative;
+    overflow: hidden;
+}
+.policies img {
+    height: 75%;
+    margin-left: 810px;
+}
+.policies_img {
+    height: 600px;
+    display: table-cell;
+    vertical-align: middle;
+}
+.policies_title {
+    font-size: 3rem;
+    color: white;
+    position: absolute;
+    top: 140px;
+    left: 250px;
+}
+.policies_legend {
+    font-size: 1.5rem;
+    color: #bdbdbd;
+    position: absolute;
+    left: 250px;
+    bottom: 240px;
+}
+.policies_button {
+    position: absolute;
+    bottom: 140px;
+    left: 250px;
+}
+.policies button {
+    color: white;
+    width: 170px;
+    height: 50px;
+    margin-right: 30px;
+    background-color: transparent;
+    border: 1px solid #bdbdbd5b;
+    border-radius: 2px;
+    transition-duration: 0.4s;
+}
+.policies button:hover {
+    background-color: white;
+    color: black;
+}
+/* 产品部分 */
+.product {
+    height: 420px;
+    width: 100%;
+    border-bottom: 1px solid #bdbdbd;
+}
+.product_title {
+    font-size: 3rem;
+    text-align: center;
+    margin: 85px auto;
+}
+.product_box {
+    display: flex;
+    padding: 0 250px;
+}
+.product_flex {
+    flex: 1;
+}
+.product_box img {
+    clear: both;
+    display: block;
+    margin: 0 auto;
+    padding-bottom: 35px;
+}
+.product_flex p {
+    text-align: center;
+    font-size: 1.3rem;
+    color: #bdbdbd;
+    line-height: 1.5;
+}
+/* 建议部分 */
+.suggest {
+    padding: 80px 230px;
+    border-bottom: 1px solid #bdbdbd;
+}
+.suggest_1 {
+    margin-bottom: 60px;
+}
+.suggest img {
+    width: 60%;
+}
+.suggest>div {
+    position: relative;
+}
+.suggest_img1 {
+    float: left;
+}
+.suggest img+div {
+    position: absolute;
+    bottom: 0px;
+}
+.suggest_img1+div {
+    right: 0px;
+}
+.suggest_img2 {
+    float: right;
+}
+.suggest_title {
+    font-size: 2rem;
+}
+.suggest_legend {
+    margin: 20px 0;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: #bdbdbd;
+}
+.float {
+    clear: both;
+}
+/* 人员部分 */
+.crew {
+    padding: 70px 190px;
+    border-bottom: 1px solid #bdbdbd;
+}
+.crew_text {
+    text-align: center;
+}
+.crew_title {
+    font-size: 3rem;
+}
+.crew_title+p {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: #bdbdbd;
+    padding: 15px 0;
+    margin-bottom: 20px;
+}
+.crew_img_box1 {
+    margin-bottom: 29px;
+}
+.crew_img_1,.crew_img_2 {
+    float: left;
+}
+.crew_img_1+div,.crew_img_2+div {
+    float: right;
+}
+.crew_img_box1>div,.crew_img_box2>div {
+    position: relative;
+}
+.mask {
+    position: absolute;
+    background: rgba(101, 101, 101, 0.8);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    text-align: center;
+}
+.crew_img_box1>div a:hover .mask,.crew_img_box2>div a:hover .mask {
+    opacity: 1;
+}
+.mask_title {
+    font-size: 2rem;
+    color: white;
+    margin: 100px 0 15px 0;
+}
+.mask_title+p {
+    color: #bdbdbd;
+    margin-bottom: 50px;
+}
+.mask img {
+    padding: 0 15px;
+}
+/* 上传信息 */
+.contact {
+    padding: 70px 200px;
+    border-bottom: 1px solid #bdbdbd;
+}
+.contact_form {
+    border: 1px solid #bdbdbd;
+    border-radius: 8px;
+    padding: 40px 30px;
+    display: inline-block;
+}
+.contact_form p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+}   
+.contact_form input {
+    margin: 13px 0;
+    width: 370px;
+    border: 1px solid #bdbdbd;
+}
+.contact_form textarea {
+    width: 355px;
+    padding: 15px;
+    margin: 13px 0;
+    border: 1px solid #bdbdbd;
+    border-radius: 3px;
+    resize: none;
+}
+.contact_form button {
+    width: 387px;
+    height: 37px;
+    background: black;
+    color: white;
+    border-radius: 3px;
+    margin: 13px 0;
+}
+/*.contact_form {
+    float: left;
+}*/
+.contacts {
+    padding-left: 150px;
+    display: inline-block;
+}
+.contacts_title {
+    font-size: 3rem;
+}
+.contacts_title+p {
+    color:  #bdbdbd;
+    line-height: 1.5;
+    font-size: 1.3rem;
+    padding: 30px 0;
+}
+.contacts li {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    list-style-type: none;
+    margin: 15px 0;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    padding-left: 3rem;
+    vertical-align: middle;
+    background-size: 2rem;
+}
+.contacts_map {
+    background-image: url(image/map_icon.png)
+}
+.contacts_phone {
+    background-image: url(image/phone_icon.png)
+}
+.contacts_mail {
+    background-image: url(image/mail_icon.png)
+}
+/* 页脚部分 */
+footer {
+    background: black;
+    display: flex;
+    padding: 70px 180px;
+}
+footer>div {
+    flex: 1;
+}
+footer h5 {
+    color: white;
+    font-size: 1.3rem;
+}
+footer p {
+    color: #bdbdbd;
+    font-size: 1.3rem;
+    margin-top: 20px;
+}
+.footer_icon {
+    margin-top: 30px;
+}
+.footer_icon img {
+    margin-right: 15px;
+}
