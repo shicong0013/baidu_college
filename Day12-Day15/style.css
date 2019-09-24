@@ -1,0 +1,378 @@
+* {
+    font-family: sans-serif;
+    font-size: 10px;
+    margin: 0;
+    padding: 0;
+}
+.float {
+    clear: both;
+}
+html {
+    height: 100%;
+}
+body {
+    display: flex;
+    height: 100%;
+}
+/* 项目部分 */
+.item {
+    flex: 0 0 90px;;
+    background: #1d2531;
+    height: 100%;
+}
+.item_icon {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 15px;
+    left: 15px; 
+}
+.item_icon img {
+    margin-bottom: 15px;
+}
+.item_icon+div {
+    position: absolute;
+    left: 15px;
+    bottom: 15px;
+    display: flex;
+}
+.item_icon+div img {
+    flex: 1;
+}
+/* 菜单部分 */
+.menu {
+    flex: 0 0 230px;
+    background: #222c3c;
+    position: relative;
+}
+.menu section {
+    margin: 20px;
+}
+.menu>section+section {
+    /* 增加菜单之间的分割线 */
+    border-top: 1px solid #5b6779;
+    padding-top: 15px;
+}
+.menu div {
+    /* 各个小按钮直接的间距 */
+    margin-top: 12px;
+}
+a {
+    outline: none;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+}
+a:link {
+    color: #b7c0cd; 
+}
+a:visited {
+    color: #b7c0cd;
+}
+.warn {
+    /* 消息数量标志 */
+    display: inline-block;
+    float: right;
+    color: white;
+    background: #2ca0f7;
+    font-weight: bold;
+    line-height: 1.5;
+    border-radius: 7px;
+    padding: 0 5px;
+}
+.warn_2 {
+    padding: 0 6px;
+    background: #dd3b1f;
+}
+.menu_title {
+    font-size: 12px;
+    color: #5b6779;
+    font-weight: bold;
+    display: inline-block;
+}
+.menu_title+img {
+    display: inline-block;
+    float: right;
+}
+.menu div p {
+    display: inline-block; /*设置所有菜单为行内块，然后让消息数量图标右浮动到一行内*/
+}
+.menu div p:nth-of-type(2){
+    float: right; 
+}
+.menu section+div {
+    width: 190px;
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+}
+.menu section+div p {
+    color: #b7c0cd;
+    display: inline-block;
+}
+.menu section+div p:nth-of-type(2) {
+    float: right;
+}
+/* 消息部分 */
+.messages {
+    background-color: white;
+    height: 100%;
+    overflow: hidden;
+}
+/* 标签与用户部分 */
+.messages>header {
+    /* 消息框头部部分 */
+    height: 50px;
+    padding: 15px 20px;
+    border-bottom: 1px solid #b7c0cd;
+}
+.messages_title {
+    /* 消息框标题 */
+    font-size: 3rem;
+    display: inline-block;
+    line-height: 50px;
+}
+.messages_title+div {
+    float: right;
+    display: flex;
+}
+.dialog {
+    display: flex;
+    overflow: auto;
+}
+.app {
+    /* app与用户名之间的间距 */
+    margin-top: 5px;
+    color: #b7c0cd;
+}
+.online {
+    /* 在线用户ID颜色 */
+    color: #2ca0f7;
+}
+/* 消息框头部 */
+.messages_user {
+    /* 当前用户头像外边距 */
+    margin: auto 15px;
+}
+.messages_user_box {
+    margin: auto 30px auto 0
+}
+.messages_title_down {
+    /* 当前用户头像右边箭头按钮 */
+    margin: auto 0;
+}
+.list>header,.talk>header {
+    /* 联系人列表搜索框，聊天框头部 */
+    height: 50px;
+    border-bottom: 1px solid #b7c0cd;
+    position: relative;
+}
+/* 左侧联系人列表部分 */
+.list {
+    flex: 0 0 300px;
+    border-right: 1px solid #b7c0cd;
+
+}
+.gd {
+    
+}
+.name {
+    font-size: 1.6rem;
+    display: inline-block
+}
+/* 左侧联系人搜索部分 */
+.search_border {
+    width: 250px;
+    height: 30px;
+    border: 1px solid #b7c0cd;
+    border-radius: 3px;
+    margin: auto auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.search_box {
+    border: 0;
+    height: 30px;
+    width: 200px;
+    font-size: 1.3rem;
+    padding: 0 10px;
+}
+.search_icon {
+    float: right;
+    height: 30px;
+    width: 30px;
+    position: relative;
+}
+.search_icon img {
+    margin: auto auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+/* 左侧联系人部分 */
+.list section {
+    padding: 15px 25px;
+    border-bottom: 1px solid #b7c0cd;
+    display: flex;
+    flex-direction: column;
+}
+.gd {
+    overflow-y:auto;
+}
+.list_flex {
+    display: flex;
+}
+.list section div>img {
+    flex: 0 0 46px;
+}
+.list_flex2 {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    flex: 0 0 184px;
+    margin: auto 0;
+}
+.list_flex3 {
+    display: flex;
+    position: relative;
+}
+.time {
+    line-height: 18px;
+    position: absolute;
+    right: 0;
+    color: #7f8fa4;
+}
+.list_flex+.list_flex {
+    margin-top: 10px;
+}
+.list_flex>.text+div {
+    margin: auto 0;
+}
+.list .text {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /*设置P只显示2行*/
+    -webkit-box-orient: vertical;/*垂直排列子元素*/
+    overflow: hidden;/*超出文本用省略号显示*/
+}
+/* 右侧对话部分头部 */
+.talk header {
+    display: flex;
+    position: relative;
+}
+.talk_name {
+    margin: auto 0;
+    padding-left: 20px;
+}
+.talk_next {
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.talk_right {
+    margin: auto 0;
+}
+.talk_title nav {
+    /* 对话头部翻页和3个按钮背景色 */
+    background: #f8f9fb;
+}
+.talk_nav1,.talk_nav2{
+    border: 1px solid #b7c0cd;
+    border-radius: 3px;
+}
+.talk_nav1 {
+    margin-right: 15px;
+}
+.talk_nav1 a,.talk_nav2 a {
+    width: 30px;
+    height: 27px;
+    float: left;
+    position: relative;
+}
+.talk_nav1 a img,.talk_nav2 a img {
+    /* 让图片在浮动元素中居中，原理不清楚。。。 */
+    margin: auto auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.talk_nav1>a+a,.talk_nav2>a+a {
+    border-left: 1px solid #b7c0cd;
+}
+.talk_nav2 {
+    margin: auto 15px;
+}
+.talk_p {
+    line-height: 29px;
+    padding-left: 20px;
+    border-left: 1px solid #b7c0cd;
+}
+/* 聊天框内容 */
+.talk {
+    position: relative;
+}
+.talk_box {
+    /* 和某个联系人的对话框 */
+    display: flex;
+    flex-direction: column;
+}
+.talk_box2 {
+    /* 两个人的一段对话框 */
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.talk_box3 {
+    /* 单独一个人的消息框 */
+    display: flex;
+}
+.talk_box4 {
+    /* 一个人的消息框内的名字、时间、和文字 */
+    display: flex;
+    flex-direction: column;
+}
+.talk_box5 {
+    /* 名字和时间同行排列 */
+    display: flex;
+}
+.talk_box6{
+    /* 消息中附加的图片 */
+    display: flex;
+}
+.talk_box3>img {
+    height: 46px;
+}
+.talk_box2+.talk_box2 {
+    border-top: 1px solid #b7c0cd;
+}
+.talk_box3+.talk_box3 {
+    margin-top: 15px;
+}
+.talk_box4 {
+    margin-left: 10px;
+}
+.talk_box4>.text {
+    margin-top: 5px;
+}
+.talk_box5>.name+p {
+    margin: auto 5px;
+    color: #7f8fa4;
+}
+.talk_box6>img+img {
+    margin-left: 10px;
+}
+/* 聊天框输入部分 */
+.talk_input {
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+}
+/* 聊天框放弃了，不知道该怎么定位。。。 */
