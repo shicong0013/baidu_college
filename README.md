@@ -13,3 +13,6 @@
 ## Day9-Day11
 * [笔记](https://github.com/shicong0013/baidu_college/tree/master/Day9-Day11)
 * [预览](https://shicong0013.github.io/baidu_college/Day9-Day11/index.html)
+## Day12-Day15
+* [笔记](https://github.com/shicong0013/baidu_college/tree/master/Day12-Day15)
+* [预览](https://shicong0013.github.io/baidu_college/Day12-Day15/index.html)
