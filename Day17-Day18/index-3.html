@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>IFE ECMAScript</title>
+</head>
+<body>        
+    <input id="dec-number" type="number" placeholder="输入要PA的数">
+    <button id="trans-btn">PAPA</button>
+    <p id="result"></p>
+<script>
+// 实现当点击PAPA时，将从依次输出1-100并把需要PA的数输出为PA，并显示在result的p标签内
+    document.getElementById('trans-btn').onclick = function(){
+        let num = document.getElementById("dec-number").value;
+        let result = document.getElementById("result").innerHTML
+        if (num > 100){
+            alert("PAPA的数不能超过100！")
+        }
+        else{
+            let a = 101;
+            for(var i = 1; i < a; i++){
+                if(i%num == 0||String(i).indexOf(num) > 0){
+                    result += "PA" + "<br>"
+                }
+                else{
+                    result += i + "<br>";
+                }
+            }
+            document.getElementById("result").innerHTML = result;
+        }
+    }
+// Some coding
+
+</script>
+</body>
+</html>
+
+

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>IFE ECMAScript</title>
+</head>      
+<body onload="a()">
+    <table id="table">
+    </table>
+    <script>
+        function a(){
+            const t = document.getElementById("table");
+            for (let i = 1; i < 10; i++){
+                const tr = document.createElement("tr");
+                for (let o = 1; o < i+1; o++){
+                    const td = document.createElement("td");
+                    let node = document.createTextNode(i + 'x' + o +'=' + o * i);
+                    td.appendChild(node);
+                    tr.appendChild(td);
+                    t.appendChild(tr);
+                }
+            }
+        }
+    </script>    
+</body>
+</html>
+
+
