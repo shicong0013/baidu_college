@@ -20,3 +20,5 @@
 * [笔记](https://github.com/shicong0013/baidu_college/tree/master/Day16)
 ## Day17-18
 * [笔记](https://github.com/shicong0013/baidu_college/tree/master/Day17-Day18)
+## Day19
+* [笔记](https://github.com/shicong0013/baidu_college/tree/master/Day19)
