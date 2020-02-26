@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 480px;
+            height: 480px;
+            background: url(http://ife.baidu.com/2016/static/img/erik_ce204002.jpg);
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        var erik = document.getElementById("box"),
+            y = 0,
+            flag = 0;
+        
+        window.onload = function (){
+            setInterval(function (){
+                if(flag == 0){
+                    erik.style.backgroundPositionY = '-' + y + 'px';
+                    y == 7680 ? flag = 1 : y += 480;
+                }else if(flag == 1){       
+                    erik.style.backgroundPositionY = '-' + y + 'px';
+                    y == 0 ? flag = 0 : y -= 480;
+                };                  
+            }, 100);          
+        }; 
+    </script>
+</body>
+</html>
