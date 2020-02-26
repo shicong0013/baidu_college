@@ -1,24 +1,27 @@
 # 百度前端技术学院
 ###### Flag：不要再半途而废坚持下去_(:з」∠)_ 成为程序员就回去结婚(ง ˙o˙)ว<br/>
-###### PS：在看到了 shiyutim 的笔记后决定向他一样记录下自己的学习历程感觉会有帮助
+###### PS：在看到了 shiyutim 的笔记后决定向他一样记录下自己的学习历程感觉会有帮助  
+## Day20-Day21  
+* [笔记](https://github.com/shicong0013/baidu_college/tree/master/Day%2020-Day%2021)   
+* [预览](https://shicong0013.github.io/baidu_college/Day%2020-Day%2021/test-5.html)  
+## Day19
+* [笔记](https://github.com/shicong0013/baidu_college/tree/master/Day19)  
+## Day17-18
+* [笔记](https://github.com/shicong0013/baidu_college/tree/master/Day17-Day18)  
+## Day16
+* [笔记](https://github.com/shicong0013/baidu_college/tree/master/Day16) 
+## Day12-Day15
+* [笔记](https://github.com/shicong0013/baidu_college/tree/master/Day12-Day15)
+* [预览](https://shicong0013.github.io/baidu_college/Day12-Day15/index.html)  
+## Day9-Day11
+* [笔记](https://github.com/shicong0013/baidu_college/tree/master/Day9-Day11)
+* [预览](https://shicong0013.github.io/baidu_college/Day9-Day11/index.html)  
+## Day7-Day8
+* [笔记](https://github.com/shicong0013/baidu_college/tree/master/Day7-Day8)
+* [预览](https://shicong0013.github.io/baidu_college/Day7-Day8/index.html)    
+## Day5-Day6
+* [笔记](https://github.com/shicong0013/baidu_college/blob/master/Day%205-Day%206)
+* [代码](https://github.com/shicong0013/baidu_college/blob/master/Day%205-Day%206/index.html)  
 ## Day 4
 * [笔记](https://github.com/shicong0013/baidu_college/blob/master/Day%204) 
 * [代码](https://github.com/shicong0013/baidu_college/blob/master/Day%204/index.html)
-## Day5-Day6
-* [笔记](https://github.com/shicong0013/baidu_college/blob/master/Day%205-Day%206)
-* [代码](https://github.com/shicong0013/baidu_college/blob/master/Day%205-Day%206/index.html)
-## Day7-Day8
-* [笔记](https://github.com/shicong0013/baidu_college/tree/master/Day7-Day8)
-* [预览](https://shicong0013.github.io/baidu_college/Day7-Day8/index.html)
-## Day9-Day11
-* [笔记](https://github.com/shicong0013/baidu_college/tree/master/Day9-Day11)
-* [预览](https://shicong0013.github.io/baidu_college/Day9-Day11/index.html)
-## Day12-Day15
-* [笔记](https://github.com/shicong0013/baidu_college/tree/master/Day12-Day15)
-* [预览](https://shicong0013.github.io/baidu_college/Day12-Day15/index.html)
-## Day16
-* [笔记](https://github.com/shicong0013/baidu_college/tree/master/Day16)
-## Day17-18
-* [笔记](https://github.com/shicong0013/baidu_college/tree/master/Day17-Day18)
-## Day19
-* [笔记](https://github.com/shicong0013/baidu_college/tree/master/Day19)
