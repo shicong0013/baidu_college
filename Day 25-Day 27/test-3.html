@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="year-select">
+        <option value="2000">2000年</option>
+    </select>
+    <select id="month-select">
+        <option value="1">1月</option>
+    </select>
+    <select id="day-select">
+        <option value="1">1日</option>
+    </select>
+    <select id="hour-select">
+        <option value="0">0时</option>
+    </select>
+    <select id="minute-select">
+        <option value="0">0分</option>
+    </select>
+    <select id="second-select">
+        <option value="0">0秒</option>
+    </select>
+    <p id="result-wrapper">现在距离 2001年1月1日星期X HH:MM:SS 还有 X 天 X 小时 X 分 X 秒</p>
+
+    <script>
+        let year = document.getElementById("year-select"),
+            month = document.getElementById("month-select"),
+            day = document.getElementById("day-select"),
+            hour = document.getElementById("hour-select"),
+            min = document.getElementById("minute-select"),
+            sec = document.getElementById("second-select"),
+            res = document.getElementById("result-wrapper"),
+            monEnd = [31,28,31,30,31,30,31,31,30,31,30,31];
+
+        //闰年判断
+        function ifYear(y) {
+            if(y % 4 == 0 && y % 100 != 0){
+                return true;
+            } else if(y % 400 == 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        //设置起始时间
+        function selTime() {
+            //添加年份
+            for(let i = 2001; i < 2033; i++) {
+                year.options.add(new Option(i + "年", i));
+            }
+            //添加月份
+            for(let i = 2; i < 13; i++) {
+                month.options.add(new Option(i + "月", i));
+            }
+            //添加小时
+            for(let i = 1; i < 24; i++) {
+                hour.options.add(new Option(i + "时", i));
+            }
+            //添加分
+            for(let i = 1; i < 60; i++) {
+                min.options.add(new Option(i + "分", i));
+            }
+            //添加秒
+            for(let i = 1; i < 60; i++) {
+                sec.options.add(new Option(i + "秒", i));
+            }
+            //添加天
+            dayChange();
+        }
+        //删除天数
+        function dayClear(e) {
+            e.options.length = 1;
+        }
+        //当年或月份发生变化时修改天数
+        month.onchange = dayChange;
+        year.onchange = dayChange;
+        function dayChange() {
+            dayClear(day);
+            if (ifYear(year.value)) {
+                if(month.value == 2) {
+                    for(let i = 2; i <= monEnd[month.value - 1] + 1; i++) {
+                        day.options.add(new Option(i + "日", i));
+                    }
+                } else {
+                    for(let i = 2; i <= monEnd[month.value - 1]; i++) {
+                        day.options.add(new Option(i + "日", i));
+                    }
+                }
+            } else {
+                for(let i = 2; i <= monEnd[month.value - 1]; i++) {
+                    day.options.add(new Option(i + "日", i));
+                }
+            }
+        }
+        //获得设置日期
+        function getTime() {
+            let getD = year.value + "-" + month.value + "-" + day.value;
+            let selD = new Date(getD);
+            let getT = " " + hour.value + ":" + min.value + ":" + sec.value;
+            return year.value + "年" + month.value + "月" + day.value + "日" + getWeek(selD.getDay()) + getT;
+        }
+        //根据设置日期返回星期
+        function getWeek(d) {
+            let week = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+            return week[d];
+        }
+        //根据设置日期对比现在时间
+        function compareTime() {
+            let getT = year.value + "-" + month.value + "-" + day.value + " " + hour.value + ":" + min.value + ":" + sec.value;
+            let getD = new Date(getT);
+            let nowD = new Date;
+            let p_str;
+            //因为中国在东8区所以需要加8小时(2880000 毫秒)
+            let surplus = getD - nowD + 28800000;
+            if(surplus >= 0) {
+                p_str = " 还有";
+            } else {
+                p_str = " 已经过去"
+            }
+            surplus = -surplus;
+            let sDay = surplus / 86400000;
+            let sHour = (surplus % 86400000) / 3600000;
+            let sMin = ((surplus % 86400000) % 3600000) / 60000;
+            let sSec = (((surplus % 86400000) % 3600000) % 60000) / 1000;
+            return p_str + parseInt(sDay) + "天" + parseInt(sHour) + "小时" + parseInt(sMin) + "分" + parseInt(sSec) + "秒";
+        }
+        //最终显示
+        function over() {
+            return res.innerHTML = "现在距离 " + getTime() + compareTime();  
+        }
+        setInterval(over,1000);
+        //调用 设置起始时间
+        if (document.attachEvent) {
+            window.attachEvent("onload", selTime);
+        }
+        else{
+            window.addEventListener('load', selTime, false);
+        }
+        //selTime();
+
+    </script>
+</body>
+</html>
