@@ -4,6 +4,7 @@
 ## Day25-Day27
 * [笔记](https://github.com/shicong0013/baidu_college/tree/master/Day%2025-Day%2027)
 * [预览](https://shicong0013.github.io/baidu_college/Day%2025-Day%2027/test-3.html)
+* 学习使我快乐(ง •̀_•́)ง
 ## Day22-Day24
 * [笔记](https://github.com/shicong0013/baidu_college/tree/master/Day%2022-Day%2024)
 * 叒中断了一次
