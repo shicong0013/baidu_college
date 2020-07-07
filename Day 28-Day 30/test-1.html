@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .email-sug {
+            margin: 0px;
+            padding: 0px 10px;
+            width: 149px;
+            height: 88px;
+            line-height: 22px;
+            font-size: 14px;
+            list-style-type: none;
+            border: 1px solid;
+            border-top: 0px;
+            display: none;
+        }
+        #email-input {
+            padding: 0px 10px;
+        }
+        li:hover {
+            background-color: grey;
+        }
+        .selLi {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <input id="email-input" type="text">
+        <ul id="email-sug-wrapper" class="email-sug"></ul>
+    </div>
+    <script>
+        let postfixList = ['163.com', 'gmail.com', 'qq.com', '263.net'];
+        let input = document.getElementById("email-input");
+        let ul = document.getElementById("email-sug-wrapper");
+        let nowTipIndex = 0; //存储选中的Li序号
+
+        //输入框监听
+        // input.oninput = function() {
+        //     addList();
+        //     ulDisplay();
+        //     //console.log('event handle');
+        // }
+        //鼠标监听
+        ul.onclick = function(e) {
+            let e_1 = e || window.event;
+            let e_2 = e_1.target || e_1.srcElement;
+            console.log(e_2.nodeName);
+                if(e_2.nodeName == "LI") {
+                    //input.value = e_2.innerHTML;
+                    input.value = decode(e_2.innerHTML);
+                    ulNone();
+                }
+        }
+        //重置Li选中状态
+        function reLi() {
+            nowTipIndex = 0;
+        }
+        //键盘监听
+        input.addEventListener("keyup", function(event) {
+            let event1 = event || window.event;
+            if(event.keyCode != 13 && event.keyCode != 38 && event.keyCode != 40) {
+                reLi();
+            }
+            if(event1.keyCode == 13) {
+                input.value = ul.childNodes[nowTipIndex].innerHTML;
+                ulNone();
+            }
+            if(event1.keyCode == 38) {
+                if(nowTipIndex == 0) {
+                    nowTipIndex == ul.childNodes.length - 1;
+                } else {
+                    nowTipIndex--;
+                }
+            }
+            if(event1.keyCode == 40) {
+                if(nowTipIndex == ul.childNodes.length -1) {
+                    nowTipIndex = 0;
+                } else {
+                    nowTipIndex++;
+                }
+            }
+            addList();
+            ulDisplay();
+        });
+        //输入框文本整理
+        function trimInput() {
+            let input_v1 = input.value.replace(/\s*/g,"");
+            //let input_v1 = input.value;
+            //console.log(input_v1);
+            return input_v1;
+        }
+        //输入字符转义
+        function encode(cc) {
+            //创建一个动态div储存需要被转义的内容
+            let temp = document.createElement("div");
+            //将要被转义的内容以纯文本储存至div，textContent支持火狐，innerText支持ie
+            (temp.textContent != undefined) ? (temp.textContent = cc) : (temp.innerText = cc);
+            //然后把这个元素的内容输出，以被innerHTML转义
+            let output = temp.innerHTML;
+            temp = null;
+            return output;
+        }
+        //输入字符解码
+        function decode(cc) {
+            //创建动态div
+            let temp = document.createElement("div");
+            temp.innerHTML = cc;
+            let output = temp.innerText || temp.textContent;
+            return output;
+        }
+        //生成提示框内容
+        function tipContent() {
+            let input_v2 = trimInput();//@之前的内容
+                input_v2 = encode(input_v2);
+            let tipTxt = new Array(); //
+            let input_v3;//@之前的内容
+            let input_v4;//@之后的内容
+            let flag = 0;//是否显示全部邮箱的判断只
+            //当输入有@时，只选取@之前的内容
+            if(input_v2.indexOf("@") == -1) {
+                input_v3 = input_v2;
+            } else {
+                input_v3 = input_v2.slice(0, input_v2.indexOf("@"));
+                input_v4 = input_v2.slice(input_v2.indexOf("@") +1);
+                // console.log(input_v3 + "v3");
+                // console.log(input_v4 + "v4");
+            }
+            for(let i = 0; i < postfixList.length; i++) {
+                //tipTxt[i] = input_v3 +"@"+ postfixList[i];
+                if(postfixList[i].indexOf(input_v4) == 0) {
+                    tipTxt[i] = document.createElement("li")
+                    tipTxt[i].innerText = input_v3 + "@" + postfixList[i];
+                    flag = 1;
+                }
+            }
+            //当没有后缀匹配邮箱后缀时显示全部
+            if(flag == 0) {
+                for(let i = 0; i < postfixList.length; i++) {
+                    tipTxt[i] = document.createElement("li");
+                    tipTxt[i].innerText = input_v3 +"@"+ postfixList[i];
+                }
+            }
+            //删除数组中的空值
+            for(let i = 0; i < tipTxt.length; i++) {
+                if(typeof tipTxt[i] == "undefined") {
+                    tipTxt.splice(i,1);
+                    i--;
+                }
+            }
+            tipTxt[nowTipIndex].className = 'selLi';
+            console.log(tipTxt);
+            console.log(nowTipIndex);
+            return tipTxt; 
+        }
+        //将提示内容添加到ul
+        function addList() {
+            let tipTxt_v1 = tipContent();
+            //删除子节点
+            let reL = ul.childNodes.length;
+            console.log(reL + "长度");
+            for(let i = reL - 1; i >= 0; i--) {
+                ul.removeChild(ul.childNodes[i]);
+            }        
+            for(let i = 0; i < tipTxt_v1.length; i++) {
+                //let postLi = document.createElement("li");
+                //postLi = tipTxt_v1[i];
+                ul.appendChild(tipTxt_v1[i]);
+            } 
+        }
+        //控制ul的显示隐藏
+        function ulDisplay() {
+            if(trimInput() == "") {
+                ulNone();
+            } else {
+                ulBlock();
+            }
+        }
+        //隐藏 
+        function ulNone() {
+            ul.style.display = "none";
+        }
+        //显示
+        function ulBlock() {
+            ul.style.display = "block";
+        }
+    </script>
+</body>
+</html>
