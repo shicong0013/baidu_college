@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
+    <title>Document</title>
+</head>
+<body>
+    <select name="" id="region-select">
+        <option value="1">华东</option>
+        <option value="2">华南</option>
+        <option value="3">华北</option>
+    </select>
+    <select name="" id="product-select">
+        <option value="1">手机</option>
+        <option value="2">笔记本</option>
+        <option value="3">智能音箱</option>
+    </select>
+    <table id="tabData">
+    </table>
+    <script type="text/javascript" src="ife31data.js"></script>
+    <script>
+        
+        let region = document.getElementById("region-select");
+        let product = document.getElementById("product-select");
+        let tab = document.querySelector("table");
+        //let tab = document.getElementById("tabData");
+        let tH = ['商品', '地区', '1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
+
+        window.newTab();
+        //表单发生变化时执行函数
+        region.onchange, product.onchange = function() {
+            console.log(region.selectedIndex);
+            console.log(region[2].innerText);
+            //console.log(tab.childNodes + "**");
+            newTab();
+        }
+
+        //根据select选项获取数据
+        function getData() {
+            //let selIndex = region.selectedIndex;
+            let regionIndex = region[region.selectedIndex].innerText;
+            let productIndex = product[product.selectedIndex].innerText;
+            let saleData;
+            for(let i = 0; i < sourceData.length; i++) {
+                if(sourceData[i].region == regionIndex && sourceData[i].product == productIndex) {
+                    saleData = sourceData[i].sale;
+                    //console.log(saleData);
+                }
+            }
+            //添加商品和地区至数据中
+            saleData.unshift(productIndex,regionIndex);
+            return saleData; 
+        }
+        //渲染新的表格
+        function newTab() {
+            let newData = getData(); //获得数据
+            let tabRow = tab.rows;
+            let tabString;
+            console.log(newData);
+            //渲染表格
+            if(tabRow.length > 0) {
+                for(let i = tab.rows.length; i > 0; i--) {
+                    tab.deleteRow(0);
+                }
+            }
+            tab.insertRow(0);
+            for(let i = 0; i < tH.length; i++) {
+                tabRow[0].innerHTML += "<td>" + tH[i] + "</td>";
+            }
+            tab.insertRow(-1)
+            for(let i = 0; i < newData.length; i++) {
+                tabRow[1].innerHTML += "<td>" + newData[i] + "</td>";
+            }
+        }
+    </script>
+</body>
+</html>
