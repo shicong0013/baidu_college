@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>地区:</p>
+    <div id="region-radio-wrapper"></div>
+    <p>商品:</p>
+    <div id="product-radio-wrapper"></div>
+    <div id="table-wrapper"></div>
+    <script type="text/javascript" src="ife31data.js"></script>
+    <script>
+        let regionBox = document.getElementById("region-radio-wrapper");
+        let productBox = document.getElementById("product-radio-wrapper");
+        let tableBox = document.getElementById("table-wrapper");
+        let regionData =new Array; //存放地区
+        let productData = new Array;  //产品
+        let saleData = [];
+        let saleFlag = 0; //商品与地区顺序
+
+        window.onload = function() {
+            CheckBox(regionBox, ["华东", "华南", "华北"]);
+            CheckBox(productBox, ["手机", "笔记本", "智能音箱"]);
+        }
+        
+        function CheckBox(boxName,data,source) {
+            let radioBox = createCheckBox(boxName,data);
+            let childBox = radioBox.children;
+            let flag = 0;
+            boxName.onchange = function(event) {
+                let e = event || window.event;
+                let target = e.target || e.srcElement;
+                let source_1 = target.getAttribute("source");
+                if(target.getAttribute("type") == "checkbox") {
+                    let childLength = radioBox.children.length;
+                    let type = target.getAttribute("checkbox-type");
+                    if(type == "all") {
+                        for(let i = 0; i < childLength; i++) {
+                            radioBox.children[i].checked = true;
+                        }
+                        flag = 3;
+                    } else if(type == "child") {
+                        if(target.checked == true) {
+                            flag++;
+                        }
+                        if(target.checked == false) {
+                            flag--;
+                        }
+                        if(flag == 0) {
+                            target.checked = true;
+                            flag = 1;
+                        }
+                        if(flag == 3) {
+                            radioBox.children[0].checked = true;
+                        } else {
+                            radioBox.children[0].checked = false;
+                        }
+                    }
+                }
+                createTable(getSaleData());
+            //getSaleData();
+            }
+        }
+        function createCheckBox(boxName,data,source) {
+            //生成全选checkbox的html，给一个自定义属性表示为全选checkbox,比如 checkbox-type="all"
+            let allBox = document.createElement("input");
+            allBox.setAttribute("type", "checkbox");
+            allBox.setAttribute("value", "0");
+            allBox.setAttribute("checkbox-type", "all");
+            let allText = document.createTextNode("全选");
+            boxName.appendChild(allBox);
+            boxName.appendChild(allText);
+
+            //生成各个子选项checkbox的html,给一个自定义属性表示为子选项
+            for(let i = 0; i < data.length; i++) {
+                let childData = document.createElement("input");
+                childData.setAttribute("type", "checkbox");
+                childData.setAttribute("value", data[i]);
+                childData.setAttribute("checkbox-type", "child");
+                //childData.setAttribute("source", data[i]);
+                let childText = document.createTextNode(data[i]);
+                boxName.appendChild(childData);
+                boxName.appendChild(childText);
+            }
+            return boxName;
+        }
+        //获得数据
+        function getSaleData() {
+            saleData = [];
+            regionData = []; //地区
+            productData = []; //商品
+            saleFlag = 0;
+            
+            //获取商品和地区信息
+            for(let i = 1; i < regionBox.children.length; i++) {
+                if(regionBox.children[i].checked) {
+                    regionData.push(regionBox.children[i].value);
+                }
+            }
+            for(let i = 1; i < productBox.children.length; i++) {
+                if(productBox.children[i].checked) {
+                    productData.push(productBox.children[i].value)
+                }
+            
+            }
+            //商品有，地区无
+            if(productData.length > 0 && regionData.length == 0) {
+                saleFlag = 0;
+                for(let i in sourceData) {
+                    for(let p in productData) {
+                        if(sourceData[i].product == productData[p]) {
+                            saleData.push(sourceData[i]);
+                        }
+                    }
+                }
+            }
+            //商品无,地区有
+            if(productData.length == 0 && regionData.length > 0) {
+                saleFlag = 0;
+                for(let i in sourceData) {
+                    for(let r in regionData) {
+                        if(sourceData[i].region == regionData[r]) {
+                            saleData.push(sourceData[i]);
+                        }
+                    }
+                }
+            }
+            //地区一，商品多
+            if(productData.length > 1 && regionData.length == 1) {
+                saleFlag = 2;
+            }
+            //商品一，地区多
+            if(productData.length == 1 && regionData.length > 1) {
+                saleFlag = 1;
+            }
+            //商品地区都为一
+            if(productData.length ==1 && regionData.length == 1) {
+                saleFlag = 0;
+            }
+            //商品地区都多选
+            if(productData.length > 1 && regionData.length > 1) {
+                saleFlag = 1;
+            }
+            //商品和地区都有获得数据
+            if(productData.length > 0 && regionData.length > 0) {
+                for(let i in sourceData) {
+                    for(let p in productData) {
+                        for( let r in regionData) {
+                            if(sourceData[i].product == productData[p] && sourceData[i].region == regionData[r]) {
+                                saleData.push(sourceData[i]);
+                            }
+                        }
+                    }
+                }
+            }
+            console.log(saleData);
+            return saleData;
+        }
+
+        //渲染表格
+        function createTable() {
+            while(tableBox.hasChildNodes()) {
+                tableBox.removeChild(tableBox.firstChild);
+            }
+            let table = document.createElement("table");
+            let thead = document.createElement("thead");
+            //生成表头
+            thead.appendChild(createThead());
+            table.appendChild(thead);
+            let tbody = document.createElement("tbody");
+            //生成表格主体
+            table.appendChild(tbody);
+            
+            for(let i in saleData) {
+                let tBodyTr = document.createElement("tr");
+                if(i == 0 && saleFlag == 2) {
+                    let regionTd = document.createElement("td");
+                    regionTd.innerText = saleData[i].region;
+                    regionTd.setAttribute("rowspan", productData.length);
+                    tBodyTr.appendChild(regionTd);
+                } else if(i % regionData.length == 0 && saleFlag == 1) {
+                    let productTd = document.createElement("td");
+                    productTd.innerText = saleData[i].product;
+                    productTd.setAttribute("rowspan", regionData.length);
+                    tBodyTr.appendChild(productTd);
+                }
+                tBodyTr = createTbody(tBodyTr,saleData[i]);
+                tbody.appendChild(tBodyTr);
+            }
+
+            tableBox.appendChild(table);
+        }
+        //生成表头
+        function createThead() {
+            let tHeadTr = document.createElement("tr");
+            let tProTd = document.createElement("td");
+            tProTd.innerText = "产品";
+            let tRegTd = document.createElement("td");
+            tRegTd.innerText = "地区";
+            //判断地区和产品的前后顺序
+            if(saleFlag == 2) {
+                tHeadTr.appendChild(tRegTd);
+                tHeadTr.appendChild(tProTd);
+            } else {
+                tHeadTr.appendChild(tProTd);
+                tHeadTr.appendChild(tRegTd);
+            }
+            //加载月份
+            for(let i = 1; i <= 12; i++) {
+                let tHeadMonth = document.createElement("td");
+                tHeadMonth.innerText = i + "月";
+                tHeadTr.appendChild(tHeadMonth);
+            }
+            return tHeadTr;
+        }
+        //生成表格主体
+        function createTbody(tBodyTr,saleData) {
+            let productTd = document.createElement("td");
+            productTd.innerText = saleData.product;
+            let regionTd = document.createElement("td");
+            regionTd.innerText = saleData.region;
+            if(saleFlag == 1) {
+                tBodyTr.appendChild(regionTd);
+            } else if(saleFlag == 2) {
+                tBodyTr.appendChild(productTd);
+            } else {
+                tBodyTr.appendChild(productTd);
+                tBodyTr.appendChild(regionTd);
+            }
+            for(let i in saleData.sale) {
+                let saleTd = document.createElement("td");
+                saleTd.innerText = saleData.sale[i];
+                tBodyTr.appendChild(saleTd);
+            }
+            return tBodyTr;
+        }
+    </script>
+</body>
+</html>
