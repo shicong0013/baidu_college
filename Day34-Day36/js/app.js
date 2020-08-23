@@ -11,5 +11,5 @@ window.onload = function() {
     CheckBox(regionBox, ["华东", "华南", "华北"]);
     CheckBox(productBox, ["手机", "笔记本", "智能音箱"]);
     drawCharts.drawAix();
-    getChartsData();
+    mouseCharts();
 }
