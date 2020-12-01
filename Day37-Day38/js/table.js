@@ -157,7 +157,8 @@ function createTable (data) {
           inputData.onblur = function (e) {
             let target = e.target;
             let temp = target.parentElement.textContent;
-            setTimeout(function () {
+            setTimeout(function () { 
+              //不加延迟触发不到，按钮就隐藏了
               target.parentElement.children[0].setAttribute("style", "display:none");
               target.parentElement.children[1].setAttribute("style", "display:none");
               target.parentElement.children[2].setAttribute("style", "display:none");
