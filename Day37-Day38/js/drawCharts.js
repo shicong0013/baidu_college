@@ -240,7 +240,7 @@ let drawCharts = {
                 if(storage.getItem('newSourceData')) {
                     let json = storage.getItem('newSourceData');
                     newSourceData = JSON.parse(json);
-                    for(let j = 0; j < data.length; i++) {
+                    for(let j = 0; j < data.length; j++) {
                         for(let k = 0; k < newSourceData.length; k++) {
                             if(data[j].region == newSourceData[k].region && data[j].product == newSourceData[k].product) {
                                 data[j] = newSourceData[k];
