@@ -4,7 +4,7 @@
 
 ## Day37-Day38
 * [笔记](https://github.com/shicong0013/baidu_college/tree/master/Day37-Day38)
-* [预览](https://shicong0013.github.io/baidu_college/Day37-Day38/test-3.html)
+* [预览](https://shicong0013.github.io/baidu_college/Day37-Day38/test.html)
 ## Day34-Day36
 * [笔记](https://github.com/shicong0013/baidu_college/tree/master/Day34-Day36)
 * [预览](https://shicong0013.github.io/baidu_college/Day34-Day36/test-3.html)
