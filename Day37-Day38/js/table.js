@@ -113,6 +113,7 @@ function createTable (data) {
           }
           //输入框监听按键
           inputData.onkeydown = function (e) {
+            //console.log(this);
             if (e.keyCode == "27") { // esc
               this.parentElement.children[0].setAttribute("style", "display:none");
               this.parentElement.children[1].setAttribute("style", "display:none");
@@ -120,7 +121,7 @@ function createTable (data) {
               this.parentElement.children[3].setAttribute("style", "display:block");
             }
             if (e.keyCode == "13") { //enter
-              if (!HtmlUtil.isNumber(e.parentElement.children[2].value)) {
+              if (!HtmlUtil.isNumber(this.parentElement.children[2].value)) {
                 alert("请输入数字");
                 this.parentElement.children[2].focus();//获得输入框焦点
                 this.parentElement.children[2].select();//选中输入框内容
@@ -157,8 +158,7 @@ function createTable (data) {
           inputData.onblur = function (e) {
             let target = e.target;
             let temp = target.parentElement.textContent;
-            setTimeout(function () { 
-              //不加延迟触发不到，按钮就隐藏了
+            setTimeout(function () {
               target.parentElement.children[0].setAttribute("style", "display:none");
               target.parentElement.children[1].setAttribute("style", "display:none");
               target.parentElement.children[2].setAttribute("style", "display:none");
@@ -189,32 +189,7 @@ function createThead () {
   }
   return tHeadTr;
 }
-//生成表格主体
-// function createTbody(tBodyTr,saleData) {
-//     let productTd = document.createElement("td");
-//     productTd.innerText = saleData.product;
-//     let regionTd = document.createElement("td");
-//     regionTd.innerText = saleData.region;
-//     if(saleFlag == 1) {
-//         tBodyTr.appendChild(regionTd);
-//     } else if(saleFlag == 2) {
-//         tBodyTr.appendChild(productTd);
-//     } else {
-//         tBodyTr.appendChild(productTd);
-//         tBodyTr.appendChild(regionTd);
-//     }
-//     for(let i in saleData.sale) {
-//         let saleTd = document.createElement("td");
-//         //saleTd.setAttribute('dataType', 'sale');
-//         let inputTd = document.createElement("input");
-//         inputTd.setAttribute('type', 'text');
-//         inputTd.setAttribute('value', saleData.sale[i]);
-//         //saleTd.innerText = saleData.sale[i];
-//         saleTd.appendChild(inputTd);
-//         tBodyTr.appendChild(saleTd);
-//     }
-//     return tBodyTr;
-// }
+
 //调整表格，合并单元格
 function tableDisplay () {
   let table = document.getElementById("myTable");
