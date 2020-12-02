@@ -1,6 +1,10 @@
 # 百度前端技术学院
 ###### Flag：不要再半途而废坚持下去_(:з」∠)_ 成为程序员就回去结婚(ง ˙o˙)ว<br/>
 ###### PS：在看到了 shiyutim 的笔记后决定向他一样记录下自己的学习历程感觉会有帮助
+
+## Day37-Day38
+* [笔记](https://github.com/shicong0013/baidu_college/tree/master/Day37-Day38)
+* [预览](https://shicong0013.github.io/baidu_college/Day37-Day38/test-3.html)
 ## Day34-Day36
 * [笔记](https://github.com/shicong0013/baidu_college/tree/master/Day34-Day36)
 * [预览](https://shicong0013.github.io/baidu_college/Day34-Day36/test-3.html)
