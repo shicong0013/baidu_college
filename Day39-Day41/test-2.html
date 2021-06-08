@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="a">A</button>
+  <button id="b">B</button>
+  <button id="c">C</button>
+
+  <button id="d">D</button>
+  <button id="e">E</button>
+  <button id="f">F</button>
+
+
+  <div id="contABC"></div>
+  <div id="contDEF"></div>
+
+  <script>
+    let cont1 = document.getElementById("contABC");
+    let cont2 = document.getElementById("contDEF");
+    let btn = document.querySelector("body");
+
+    function getHash() {
+      let H = location.hash;
+      H = H.slice(1);
+      let cont = H.split("&");
+      if (cont[0] == undefined) {
+        cont[0] = ""
+      }
+      if (cont[1] == undefined) {
+        cont[1] = ""
+      }
+      return cont;
+    }
+
+    function change() {
+      contText = getHash();
+      cont2.innerHTML = contText[1];
+      cont1.innerHTML = contText[0];
+    }
+
+    btn.onclick = function (event) {
+      let hashCont = getHash();
+      switch (event.target.id) {
+        case "a":
+        case "b":
+        case "c":
+          hashCont[0] = event.target.innerHTML;
+          break;
+        case "d":
+        case "e":
+        case "f":
+          hashCont[1] = event.target.innerHTML;
+          break;
+      }
+      location.hash = hashCont[0] + "&" + hashCont[1];
+    }
+
+    window.addEventListener("hashchange", change);
+    change();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+body {
+  /* 设置body页面的字体选项，按系统支持挨个使用 */
+  font-family: "consolas", "微软雅黑" ,"monospace";
+}
+/* 表格 */
+table,
+table thead tr td,
+table tbody tr td {
+  /* 设置表格的边框粗细，颜色，边框样式 */
+  border: 2px #8a56be solid;
+  /* 表格所有字的颜色 */
+  color: #8a56be;
+  /* 合并表格内的边框为单一边框 */
+  border-collapse: collapse;
+  /* 表格内字居中显示 */
+  text-align: center;
+}
+
+table thead tr td,
+table tbody tr td {
+  width:  90px;
+  height: 38px;
+  /*超出边界会隐藏 */
+  overflow: hidden;
+  /* 相对定位，提供绝对定位的参照 */
+  position: relative;
+  background-clip: padding-box;
+}
+
+table td img {
+  /* 编辑图标绝对定位 */
+  position: absolute;
+  top: 4px;
+  /* 让图标超出边界隐藏 */
+  right: -20px;
+}
+table td:hover img {
+  /* 鼠标悬停后图标回到边界内，显示 */
+  right: 5px;
+}
+
+/* 输入框 */
+table .inputData {
+  /* 输入框尺寸 */
+  width: 54px;
+  height: 36px;
+  /* 输入框绝对定位 */
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  /* 隐藏输入框 */
+  display: none;
+}
+
+/* 输入框确定与取消 */
+.confirm,
+.cancel {
+  position: absolute;
+  right: 1px;
+  background-color: #1e58c4;
+  color: #fff;
+  font-size: 12px;
+  /* 按钮文本的对其方式，居中 */
+  text-align: center;
+  width: 30px;
+  height: 18px;
+  padding: 0;
+  /* 两个按钮隐藏 */
+  display: none;
+}
+/* 确认按钮位置 */
+.confirm {
+  top: 1px;
+}
+/* 取消按钮位置 */
+.cancel {
+  bottom: 1px;
+}
+/* 首行颜色 */
+table thead tr td {
+  background-color: #8a56be;
+  color: #fff;
+}
+
+table input {
+  /* 输入框不显示边框 */
+  border: none;
+  /* 输入字符居中显示 */
+  text-align: center;
+}
+
+table {
+  /* 外边距，与选框有间隙 */
+  margin-top: 10px;
+}
+
+tbody tr:hover {
+  /* 鼠标悬停时替换tr的背景颜色 */
+  background-color: #c391f588;
+}
+
+tbody td:hover {
+  /* 鼠标悬停时替换td的背景颜色 */
+  background: #5bc49f;
+  color: #fff;
+  /* 鼠标悬停时，鼠标样式改为手指 */
+  cursor: pointer;
+  /* 背景内容为边框内 */
+  background-clip: padding-box;
+}
+
+[rowspan] {
+  /* 单元格合并时，鼠标悬停时不会变色 */
+  background-color: #fff;
+}
+
+#bar-wrapper,
+#line-wrapper {
+  /* 柱状图和折线图改为行内元素，可以并列显示 */
+  display: inline-block;
+}
+#charts {
+  width: 1310px;
+  margin: 0 auto;
+}
+
+#checkbox-wrapper,
+#table-wrapper {
+  /* 与图表对其 */
+  width: 1260px;
+  margin: 0 auto;
+}
+
+/* 表单 */
+#checkbox-wrapper label {
+  padding-left: 5px;
+  color: #8a56be;
+  padding-left: 5px;
+  text-align: left;
+}
+#checkbox-wrapper input {
+  margin: 0 20px 10px 5px;
+}
+#checkbox-wrapper input:nth-last-of-type(1) {
+  /* 修改最后一项input外边距 */
+  margin-right: 5px;
+}
+ 
+#region-wrapper,
+#product-wrapper {
+  display: inline;
+  margin: 0 10px 10px 0;
+  border: #8a56be 2px solid;
+  padding: 5px;
+}

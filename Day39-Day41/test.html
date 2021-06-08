@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="a">A</button>
+  <button id="b">B</button>
+  <button id="c">C</button>
+  <div id="cont"></div>
+  <script>
+    let cont = document.getElementById("cont");
+    let btn = document.getElementsByTagName("body")[0];
+    function getHash() {
+      let H = location.hash
+      return H ? H.substring(1) : null;
+    }
+
+    function change() {
+      contText = getHash();
+      if(contText) {
+        cont.innerHTML = contText;
+      }
+      console.log(1);
+    }
+
+    btn.onclick = function(event) {
+      if (event.target.nodeName.toLowerCase() === "button") {
+        location.hash = event.target.innerHTML;
+      }
+    }
+
+    window.addEventListener("hashchange", change);
+
+    change();
+  </script>
+</body>
+
+</html>
