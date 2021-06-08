@@ -2,6 +2,9 @@
 ###### Flag：不要再半途而废坚持下去_(:з」∠)_ 成为程序员就回去结婚(ง ˙o˙)ว<br/>
 ###### PS：在看到了 shiyutim 的笔记后决定向他一样记录下自己的学习历程感觉会有帮助
 
+## Day39-Day41
+* [笔记](https://github.com/shicong0013/baidu_college/tree/master/Day39-Day41)
+* [预览](https://shicong0013.github.io/baidu_college/Day39-Day41/test3.html)
 ## Day37-Day38
 * [笔记](https://github.com/shicong0013/baidu_college/tree/master/Day37-Day38)
 * [预览](https://shicong0013.github.io/baidu_college/Day37-Day38/test.html)
